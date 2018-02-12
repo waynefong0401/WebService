@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GetTaxInfoDetailsXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxInfoDetailsXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaxInfoDetailsXMLResult" type="tns:TaxInfoDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TaxInfoDetails">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="income_from" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="income_to" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="gross_tax_payable" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="tax_rate" type="s:double" />
+          <s:element minOccurs="0" maxOccurs="1" name="comment" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTaxInfoDetailsJSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxInfoDetailsJSONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaxInfoDetailsJSONResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaxInfoResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxAmount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="amount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxAmountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetTaxAmountResult" type="s:double" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllTaxInfoJSON">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllTaxInfoJSONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllTaxInfoJSONResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllTaxInfoXML">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllTaxInfoXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllTaxInfoXMLResult" type="tns:ArrayOfTaxInfoDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTaxInfoDetails">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TaxInfoDetails" nillable="true" type="tns:TaxInfoDetails" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTaxSingleResultJSON">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxSingleResultJSONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaxSingleResultJSONResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxSingleResultXML">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="from" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxSingleResultXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaxSingleResultXMLResult" type="tns:TaxInfoDetails" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTaxRangeXML">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTaxRangeXMLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaxRangeXMLResult" type="tns:ArrayOfTaxRange" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfTaxRange">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="TaxRange" nillable="true" type="tns:TaxRange" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="TaxRange">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="income_from" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="income_to" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTaxRangeJSON">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTaxRangeJSONResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTaxRangeJSONResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetTaxInfoDetailsXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaxInfoDetailsXML" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxInfoDetailsXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaxInfoDetailsXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxInfoDetailsJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaxInfoDetailsJSON" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxInfoDetailsJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaxInfoDetailsJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaxInfo" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaxInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxAmountSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaxAmount" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxAmountSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaxAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTaxInfoJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllTaxInfoJSON" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTaxInfoJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllTaxInfoJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTaxInfoXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllTaxInfoXML" />
+  </wsdl:message>
+  <wsdl:message name="GetAllTaxInfoXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllTaxInfoXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxSingleResultJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaxSingleResultJSON" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxSingleResultJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaxSingleResultJSONResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxSingleResultXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaxSingleResultXML" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxSingleResultXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaxSingleResultXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxRangeXMLSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaxRangeXML" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxRangeXMLSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaxRangeXMLResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxRangeJSONSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTaxRangeJSON" />
+  </wsdl:message>
+  <wsdl:message name="GetTaxRangeJSONSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTaxRangeJSONResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebServiceSoap">
+    <wsdl:operation name="GetTaxInfoDetailsXML">
+      <wsdl:input message="tns:GetTaxInfoDetailsXMLSoapIn" />
+      <wsdl:output message="tns:GetTaxInfoDetailsXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxInfoDetailsJSON">
+      <wsdl:input message="tns:GetTaxInfoDetailsJSONSoapIn" />
+      <wsdl:output message="tns:GetTaxInfoDetailsJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxInfo">
+      <wsdl:input message="tns:GetTaxInfoSoapIn" />
+      <wsdl:output message="tns:GetTaxInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxAmount">
+      <wsdl:input message="tns:GetTaxAmountSoapIn" />
+      <wsdl:output message="tns:GetTaxAmountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTaxInfoJSON">
+      <wsdl:input message="tns:GetAllTaxInfoJSONSoapIn" />
+      <wsdl:output message="tns:GetAllTaxInfoJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTaxInfoXML">
+      <wsdl:input message="tns:GetAllTaxInfoXMLSoapIn" />
+      <wsdl:output message="tns:GetAllTaxInfoXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxSingleResultJSON">
+      <wsdl:input message="tns:GetTaxSingleResultJSONSoapIn" />
+      <wsdl:output message="tns:GetTaxSingleResultJSONSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxSingleResultXML">
+      <wsdl:input message="tns:GetTaxSingleResultXMLSoapIn" />
+      <wsdl:output message="tns:GetTaxSingleResultXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxRangeXML">
+      <wsdl:input message="tns:GetTaxRangeXMLSoapIn" />
+      <wsdl:output message="tns:GetTaxRangeXMLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxRangeJSON">
+      <wsdl:input message="tns:GetTaxRangeJSONSoapIn" />
+      <wsdl:output message="tns:GetTaxRangeJSONSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebServiceSoap" type="tns:WebServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTaxInfoDetailsXML">
+      <soap:operation soapAction="http://tempuri.org/GetTaxInfoDetailsXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxInfoDetailsJSON">
+      <soap:operation soapAction="http://tempuri.org/GetTaxInfoDetailsJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxInfo">
+      <soap:operation soapAction="http://tempuri.org/GetTaxInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxAmount">
+      <soap:operation soapAction="http://tempuri.org/GetTaxAmount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTaxInfoJSON">
+      <soap:operation soapAction="http://tempuri.org/GetAllTaxInfoJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTaxInfoXML">
+      <soap:operation soapAction="http://tempuri.org/GetAllTaxInfoXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxSingleResultJSON">
+      <soap:operation soapAction="http://tempuri.org/GetTaxSingleResultJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxSingleResultXML">
+      <soap:operation soapAction="http://tempuri.org/GetTaxSingleResultXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxRangeXML">
+      <soap:operation soapAction="http://tempuri.org/GetTaxRangeXML" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxRangeJSON">
+      <soap:operation soapAction="http://tempuri.org/GetTaxRangeJSON" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebServiceSoap12" type="tns:WebServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetTaxInfoDetailsXML">
+      <soap12:operation soapAction="http://tempuri.org/GetTaxInfoDetailsXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxInfoDetailsJSON">
+      <soap12:operation soapAction="http://tempuri.org/GetTaxInfoDetailsJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxInfo">
+      <soap12:operation soapAction="http://tempuri.org/GetTaxInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxAmount">
+      <soap12:operation soapAction="http://tempuri.org/GetTaxAmount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTaxInfoJSON">
+      <soap12:operation soapAction="http://tempuri.org/GetAllTaxInfoJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTaxInfoXML">
+      <soap12:operation soapAction="http://tempuri.org/GetAllTaxInfoXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxSingleResultJSON">
+      <soap12:operation soapAction="http://tempuri.org/GetTaxSingleResultJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxSingleResultXML">
+      <soap12:operation soapAction="http://tempuri.org/GetTaxSingleResultXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxRangeXML">
+      <soap12:operation soapAction="http://tempuri.org/GetTaxRangeXML" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaxRangeJSON">
+      <soap12:operation soapAction="http://tempuri.org/GetTaxRangeJSON" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService">
+    <wsdl:port name="WebServiceSoap" binding="tns:WebServiceSoap">
+      <soap:address location="http://localhost:48619/WebSite1/WebService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebServiceSoap12" binding="tns:WebServiceSoap12">
+      <soap12:address location="http://localhost:48619/WebSite1/WebService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
